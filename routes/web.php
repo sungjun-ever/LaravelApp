@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Board;
 
 
 Route::get('/', function () {
-    return view('index');
+    $board = Board::all()
+        ->sortByDesc('id')->take(5);
+    return view('index', compact('board'));
 });
 
 Route::get('/users/register', function (){

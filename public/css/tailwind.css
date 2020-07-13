@@ -7797,6 +7797,10 @@ video {
   outline: 0;
 }
 
+.text-overflow-ellipsis{
+    text-overflow: ellipsis;
+}
+
 .overflow-auto {
   overflow: auto;
 }

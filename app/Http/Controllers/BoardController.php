@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BoardController extends Controller
 {
     public function index(){
-        $boards = Board::all();
+        $boards = DB::table('boards')->orderByRaw('id DESC')->paginate(10);
+
+
         return view('boards.board', compact('boards'));
     }
 
@@ -17,15 +20,16 @@ class BoardController extends Controller
     }
 
     public function store(Request $request){
-        $boards = Board::create([
-            'title' => $request->input('title'),
-            'story' => $request->input('story')
+        $board = Board::create([
+            'title'=>$request->input('title'),
+            'story'=>$request->input('story')
         ]);
-        return redirect('/boards/'.$boards->id);
+        return redirect('/boards/'.$board->id);
     }
 
     public function show(Board $board){
-        return view('boards.show', compact('board'));
+        $boards = Board::all()->sortByDesc('id')->take(10);
+        return view('boards.show', compact(['board', 'boards']));
     }
 
     public function edit(Board $board){

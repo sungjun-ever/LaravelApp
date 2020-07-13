@@ -17,7 +17,7 @@
         <div class="flex-auto text-center px-2">
             <ul class="flex items-stretch">
                 <li class="text-center py-3 px-4 text-gray-400 hover:text-white">
-                    <a href="{{url('./boards/board')}}">자유게시판</a></li>
+                    <a href="{{url('./boards')}}">자유게시판</a></li>
                 <li class="text-center py-3 px-4 text-gray-400 hover:text-white">
                     <a href="#">자유게시판</a></li>
                 <li class="text-center py-3 px-4 text-gray-400 hover:text-white">
@@ -32,14 +32,16 @@
         </div>
         <div class="flex-auto"></div>
     </nav>
-    <section class="h-80p">
+    <section class="h-full">
         <div class="w-2/3 bg-white mx-auto min-h-full shadow-xl">
         @yield('content')
         </div>
     </section>
-    <footer class="w-2/3 mx-auto">
-        <div class="mt-4">
-            Copyright
+    <footer class="w-2/3 mx-auto h-auto">
+        <div class="mt-2">
+            Copyright<br>
+            Copyright<br>
+            Copyright<br>
         </div>
     </footer>
 </body>

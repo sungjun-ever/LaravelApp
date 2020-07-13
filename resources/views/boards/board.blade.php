@@ -10,7 +10,7 @@
     </div>
     <div class="mt-6">
         <table class="w-4/5 text-center mx-auto shadow-lg">
-            <thead class="text-center w-full">
+            <thead class="text-center">
                 <td class="bg-blue-400 w-1/5 h-10 text-gray-800">번호</td>
                 <td class="bg-blue-400 w-3/5 h-10 text-gray-800">제목</td>
                 <td class="bg-blue-400 w-1/5 h-10 text-gray-800">날짜</td>
@@ -20,9 +20,12 @@
             <tr class="border-b-2 border-gray-200">
                 <td class="w-1/5 "><a href="/boards/{{$item->id}}">{{$item->id}}</a></td>
                 <td class="w-3/5"><a href="/boards/{{$item->id}}">{{$item->title}}</a></td>
-                <td class="w-3/5  text-sm"><a href="/boards/{{$item->id}}">{{$item->created_at}}</a></td>
+                <td class="w-1/5  text-sm"><a href="/boards/{{$item->id}}">{{date("Y/m/d", strtotime($item->created_at))}}</a></td>
             </tr>
         @endforeach
         </table>
+    </div>
+    <div>
+{{--        {{$boards->links()}}--}}
     </div>
 @endsection
