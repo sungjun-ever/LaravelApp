@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Board;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class BoardController extends Controller
 {
     public function index(){
-        $boards = DB::table('boards')->orderByRaw('id DESC')->paginate(10);
+        $boards = DB::table('boards')->orderBy('id','DESC')->paginate(10);
 
 
         return view('boards.board', compact('boards'));
@@ -20,11 +21,20 @@ class BoardController extends Controller
     }
 
     public function store(Request $request){
-        $board = Board::create([
-            'title'=>$request->input('title'),
-            'story'=>$request->input('story')
+        $validator = Validator::make($request->all(),[
+            'title' => 'required|max:255',
+            'story' => 'required',
         ]);
-        return redirect('/boards/'.$board->id);
+        if ($validator->fails()){
+            return redirect('boards/create')->withErrors($validator)->withInput();
+        }
+        else{
+            $board = Board::create([
+                'title'=>$request->input('title'),
+                'story'=>$request->input('story')
+            ]);
+            return redirect('/boards/'.$board->id);
+        }
     }
 
     public function show(Board $board){
@@ -37,8 +47,17 @@ class BoardController extends Controller
     }
 
     public function update(Board $board){
-        $board->update(request(['title', 'story']));
-        return redirect('/boards/'.$board->id);
+        $validator = Validator::make(request(['title', 'story']),[
+            'title' => 'required|max:255',
+            'story' => 'required',
+        ]);
+        if ($validator->fails()){
+            return redirect('boards/'.$board->id.'/edit')->withErrors($validator)->withInput();
+        }
+        else{
+            $board->update(request(['title', 'story']));
+            return redirect('/boards/'.$board->id);
+        }
     }
 
     public function destroy(Board $board){

@@ -25,7 +25,7 @@
         @endforeach
         </table>
     </div>
-    <div>
-{{--        {{$boards->links()}}--}}
+    <div class="flex items-stretch">
+        {{ $boards->links('pagination::tailwind') }}
     </div>
 @endsection
