@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Board;
 
@@ -10,8 +11,12 @@ Route::get('/', function () {
     return view('index', compact('board'));
 });
 
-Route::get('/users/register', function (){
-    return view('users.register');
+Route::get('/auth/register', function (){
+    return view('auth.register');
+});
+
+Route::get('auth/login', function (){
+   return view('auth.login');
 });
 
 //Route::get('/boards', 'BoardController@index');
@@ -24,3 +29,7 @@ Route::get('/users/register', function (){
 
 Route::resource('boards', 'BoardController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

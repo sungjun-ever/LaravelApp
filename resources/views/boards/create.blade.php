@@ -1,4 +1,4 @@
-@extends('../layouts.layout')
+@extends('layouts.layout')
 
 @section('title', '글쓰기')
 
@@ -6,7 +6,7 @@
     <div class="w-2/3 mx-auto">
         <form action="/boards" method="post">
             @csrf
-            <input id="title" class="border border-blue-200 w-full mt-16 @error('title') border border-red-600 @enderror"
+            <input id="title" class="border border-blue-200 w-full mt-16"
                    type="text" name="title" maxlength="30" value="{{old('title') ? old('title') : ''}}" placeholder="제목">
             @error('title')
                 <div class="text-red-400">제목을 입력해주세요.</div>

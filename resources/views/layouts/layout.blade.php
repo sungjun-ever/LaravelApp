@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{mix('css/tailwind.css')}}">
     <title>@yield('title')</title>
 </head>
@@ -29,10 +28,18 @@
                     <a href="#">자유게시판</a></li>
             </ul>
         </div>
+
+
         <div class="flex-auto text-center px-2 py-3">
-            <a class="px-2 text-gray-400 hover:text-white" href="{{url('./users/register')}}">회원가입</a>
-            <a class="px-2 text-gray-400 hover:text-white" href="#">로그인</a>
+            @auth
+                <a class="px-2 text-gray-400 hover:text-white" href="{{route('logout')}}">로그아웃</a>
+            @endauth
+            @guest
+                <a class="px-2 text-gray-400 hover:text-white" href="{{url('./auth/register')}}">회원가입</a>
+                <a class="px-2 text-gray-400 hover:text-white" href="{{url('./auth/login')}}">로그인</a>
+            @endguest
         </div>
+
         <div class="flex-auto"></div>
     </nav>
     <section class="h-full">

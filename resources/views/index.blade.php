@@ -3,9 +3,9 @@
 @section('title', 'Main')
 
 @section('content')
-    <div class="flex pt-8 ml-4">
+    <div class="flex pt-8 ml-16">
         <div class="flex-1">
-            <p class="w-1/4 text-xl border-b-2 border-blue-300">
+            <p class="w-fit text-xl border-b-2 border-blue-300">
                 <a href="/boards">자유게시판</a>
             </p>
             @foreach($board as $item)
@@ -14,16 +14,16 @@
                 </p>
             @endforeach
         </div>
-        <div class="flex-1">
-            <p class="w-1/4 text-xl border-b-2 border-blue-300">자유게시판</p>
+        <div class="flex-1 ml-8">
+            <p class="w-fit text-xl border-b-2 border-blue-300">자유게시판</p>
         </div>
     </div>
-    <div class="flex pt-8 ml-4">
+    <div class="flex pt-8 ml-16">
         <div class="flex-1">
-            <p class="w-1/4 text-xl border-b-2 border-blue-300">자유게시판</p>
+            <p class="w-fit text-xl border-b-2 border-blue-300">자유게시판</p>
         </div>
-        <div class="flex-1">
-            <p class="w-1/4 text-xl border-b-2 border-blue-300">아무게시판</p>
+        <div class="flex-1 ml-8">
+            <p class="w-fit text-xl border-b-2 border-blue-300">아무게시판</p>
         </div>
     </div>
 @endsection

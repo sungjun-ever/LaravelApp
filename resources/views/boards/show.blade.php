@@ -1,4 +1,4 @@
-@extends('../layouts.layout')
+@extends('layouts.layout')
 
 @section('title', $board -> title)
 
@@ -6,7 +6,7 @@
     <div class="w-full border-b-2 border-blue-300  m-auto pt-24">
         <div class="flex ml-4 mb-2 text-left">
             <p class="flex-1">{{$board -> title}}</p>
-            <small class="flex-1 text-right mr-4">{{$board->created_at}}</small>
+            <small class="flex-1 text-right mr-4">{{date("Y/m/d",strtotime($board->created_at))}}</small>
         </div>
     </div>
     <div class="mt-4 ml-4">

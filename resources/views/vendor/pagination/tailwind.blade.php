@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
+    <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between mx-auto mt-8">
         <div class="flex justify-between flex-1 sm:hidden">
             @if ($paginator->onFirstPage())
                 <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
@@ -23,18 +23,17 @@
         </div>
 
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-            <div>
-                <p class="text-sm text-gray-700 leading-5">
-                    {!! __('Showing') !!}
-                    <span class="font-medium">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
-                    <span class="font-medium">{{ $paginator->lastItem() }}</span>
-                    {!! __('of') !!}
-                    <span class="font-medium">{{ $paginator->total() }}</span>
-                    {!! __('results') !!}
-                </p>
-            </div>
-
+{{--            <div>--}}
+{{--                <p class="text-sm text-gray-700 leading-5">--}}
+{{--                    {!! __('Showing') !!}--}}
+{{--                    <span class="font-medium">{{ $paginator->firstItem() }}</span>--}}
+{{--                    {!! __('to') !!}--}}
+{{--                    <span class="font-medium">{{ $paginator->lastItem() }}</span>--}}
+{{--                    {!! __('of') !!}--}}
+{{--                    <span class="font-medium">{{ $paginator->total() }}</span>--}}
+{{--                    {!! __('results') !!}--}}
+{{--                </p>--}}
+{{--            </div>--}}
             <div>
                 <span class="relative z-0 inline-flex shadow-sm">
                     {{-- Previous Page Link --}}
