@@ -32,7 +32,7 @@
 
             <div class="mt-6">
                 <label for="password-confirm">비밀번호 확인 : </label>
-                <input id="password-confirm" type="password" class="border border-blue-400" name="password_confirm">
+                <input id="password-confirm" type="password" class="border border-blue-400" name="password_confirmation">
             </div>
             </div>
 

@@ -29,10 +29,10 @@
             </ul>
         </div>
 
-
         <div class="flex-auto text-center px-2 py-3">
             @auth
-                <a class="px-2 text-gray-400 hover:text-white" href="{{route('logout')}}">로그아웃</a>
+                <a class="px-2 text-gray-400 hover:text-white" href="#">{{Auth::user()->name}}</a>
+                <a class="px-2 text-gray-400 hover:text-white" href="{{url('./auth/logout')}}">로그아웃</a>
             @endauth
             @guest
                 <a class="px-2 text-gray-400 hover:text-white" href="{{url('./auth/register')}}">회원가입</a>
@@ -54,5 +54,11 @@
             Copyright<br>
         </div>
     </footer>
+    <script>
+        function login_page() {
+            alert('로그인 해주세요.');
+            location.href = './auth/login';
+        }
+    </script>
 </body>
 </html>

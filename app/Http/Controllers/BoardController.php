@@ -5,33 +5,43 @@ namespace App\Http\Controllers;
 use App\Board;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class BoardController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $boards = DB::table('boards')->orderBy('id','DESC')->paginate(10);
+        $user = $request->user();
 
-
-        return view('boards.board', compact('boards'));
+        return view('boards.board', compact(['boards','user']));
     }
 
-    public function create(){
-        return view('boards.create');
+    public function create(Request $request){
+        $user = $request->user();
+        return view('boards.create', compact('user'));
     }
 
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'title' => 'required|max:255',
             'story' => 'required',
+            'user_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         if ($validator->fails()){
             return redirect('boards/create')->withErrors($validator)->withInput();
         }
         else{
+            $extension = $request->user_image->extension();
+            $imageName = time().'.'.$extension;
+            $path = $request->user_image->storeAs('public/images', $imageName);
             $board = Board::create([
-                'title'=>$request->input('title'),
-                'story'=>$request->input('story')
+                'title' => $request->title,
+                'story' => $request->story,
+                'name' => $request->name,
+                'imageName' => $imageName,
+                'user_image' => Storage::url($path)
             ]);
             return redirect('/boards/'.$board->id);
         }

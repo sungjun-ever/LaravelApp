@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Board extends Model
 {
     protected $fillable=[
-      'title', 'story'
+      'title', 'story', 'name', 'user_image', 'imageName'
     ];
 }

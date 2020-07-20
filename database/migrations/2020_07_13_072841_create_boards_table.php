@@ -17,6 +17,9 @@ class CreateBoardsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('story');
+            $table->string('name');
+            $table->string('imageName');
+            $table->string('user_image');
             $table->timestamps();
         });
     }
