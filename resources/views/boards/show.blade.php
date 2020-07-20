@@ -11,7 +11,7 @@
     </div>
 
     <div class="mt-4 ml-4">
-        <img src="{{ asset('/images/'.$board->imageName)}}" alt="사진">
+        <img src="{{asset('storage/images/'.$board->imageName)}}" alt="사진">
         {{$board -> story}}
     </div>
 
