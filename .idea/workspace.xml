@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="857ecfc1-5d4c-4985-ae40-6c7e2389136b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Board.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Board.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BoardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_072841_create_boards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_072841_create_boards_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/boards/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/boards/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,16 +148,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\zkfma\movie\storage\app\public\images" />
-      <recent name="C:\Users\zkfma\movie\storage\app\public" />
-      <recent name="C:\Users\zkfma\movie\storage\app" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zkfma\movie\public\storage\images" />
       <recent name="C:\Users\zkfma\movie\resources\views" />
       <recent name="C:\Users\zkfma\movie\resources\views\users" />
       <recent name="C:\Users\zkfma\movie\resources\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zkfma\movie\storage\app\public\images" />
+      <recent name="C:\Users\zkfma\movie\storage\app\public" />
+      <recent name="C:\Users\zkfma\movie\storage\app" />
     </key>
   </component>
   <component name="RunManager">
@@ -178,7 +181,9 @@
       <workItem from="1594717997800" duration="12479000" />
       <workItem from="1595128938457" duration="21000" />
       <workItem from="1595130206621" duration="13921000" />
-      <workItem from="1595231232784" duration="23108000" />
+      <workItem from="1595231232784" duration="25018000" />
+      <workItem from="1595403622919" duration="592000" />
+      <workItem from="1595576344846" duration="3175000" />
     </task>
     <servers />
   </component>
@@ -198,10 +203,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="741" y="145" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594534696173" />
-    <state x="904" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595231232020">
+    <state x="904" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595576351731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="904" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595231232020" />
+    <state x="904" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595576351731" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1595134707883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

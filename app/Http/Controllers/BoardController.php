@@ -24,19 +24,18 @@ class BoardController extends Controller
     }
 
     public function store(Request $request){
-        $validator = Validator::make($request->all(),[
-            'title' => 'required|max:255',
-            'story' => 'required',
-            'user_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        if ($validator->fails()){
-            return redirect('boards/create')->withErrors($validator)->withInput();
-        }
-        else{
+        if($request->user_image){
+            $validator = Validator::make($request->all(),[
+                'user_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+            if ($validator->fails()){
+                return redirect('boards/create')->withErrors($validator)->withInput();
+            }
             $extension = $request->user_image->extension();
             $imageName = time().'.'.$extension;
             $path = $request->user_image->storeAs('public/images', $imageName);
             $board = Board::create([
+                'userID' => auth()->id(),
                 'title' => $request->title,
                 'story' => $request->story,
                 'name' => $request->name,
@@ -44,6 +43,21 @@ class BoardController extends Controller
                 'user_image' => Storage::url($path)
             ]);
             return redirect('/boards/'.$board->id);
+        } else {
+            $validator = Validator::make($request->all(), [
+                'title' => 'required|max:255',
+                'story' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return redirect('boards/create')->withErrors($validator)->withInput();
+            }
+            $board = Board::create([
+                'userID' => auth()->id(),
+                'title' => $request->title,
+                'story' => $request->story,
+                'name' => $request->name
+            ]);
+            return redirect('/boards/' . $board->id);
         }
     }
 
@@ -73,5 +87,5 @@ class BoardController extends Controller
     public function destroy(Board $board){
         $board -> delete();
         return redirect('/boards');
-    }
+        }
 }

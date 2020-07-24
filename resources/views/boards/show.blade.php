@@ -3,25 +3,30 @@
 @section('title', $board -> title)
 
 @section('content')
-    <div class="w-full border-b-2 border-blue-300  m-auto pt-24">
+    <div class="w-full pr-4 pl-4">
+    <div class="w-full border-b-2 border-blue-300 m-auto pt-24">
         <div class="flex ml-4 mb-2 text-left">
             <p class="flex-auto font-semibold">{{$board -> title}}</p>
             <p class="flex-auto text-right mr-4 text-sm">{{$board -> name}}</p>
         </div>
     </div>
-
+    </div>
     <div class="mt-4 ml-4">
-        <img src="{{asset('storage/images/'.$board->imageName)}}" alt="사진">
+        <img class="mb-4 m-auto" src="{{asset('storage/images/'.$board->imageName)}}" alt="사진" />
         {{$board -> story}}
     </div>
 
     <div class="inline-block mt-4 w-full text-right">
         <a href="/boards/{{$board->id}}/edit" ><button class="py-1 px-4 bg-green-500 hover:bg-green-700 text-gray-200 mr-4">수정</button></a>
-            <form class="inline" action="/boards/{{$board->id}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input class="py-1 px-4 bg-red-500 hover:bg-red-700 text-gray-200 mr-4 show_confirm" type="submit" value="삭제" onclick="return confirm('정말 삭제하시겠습니까?')">
-            </form>
+            @if($board->id != auth()->id())
+                <input class="py-1 px-4 bg-red-500 hover:bg-red-700 text-gray-200 mr-4 show_confirm" type="submit" value="삭제" onclick="return alert('삭제 권한이 없습니다.')">
+            @else
+                <form class="inline" action="/boards/{{$board->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input class="py-1 px-4 bg-red-500 hover:bg-red-700 text-gray-200 mr-4 show_confirm" type="submit" value="삭제" onclick="return confirm('정말 삭제하시겠습니까?')">
+                </form>
+            @endif
     </div>
     <div class="inline-block mt-8 w-full text-left ml-6">
         <a href="{{url('./boards')}}"><button class="py-1 px-4 bg-blue-500 hover:bg-blue-700 text-gray-200 mr-4">목록</button></a>

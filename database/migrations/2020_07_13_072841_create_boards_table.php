@@ -15,12 +15,14 @@ class CreateBoardsTable extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('userID');
             $table->string('title');
             $table->string('story');
             $table->string('name');
             $table->string('imageName');
             $table->string('user_image');
             $table->timestamps();
+            $table->foreign('userID')->references('id')->on('users');
         });
     }
 
