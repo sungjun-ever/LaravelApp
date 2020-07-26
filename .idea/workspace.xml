@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="857ecfc1-5d4c-4985-ae40-6c7e2389136b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BoardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_072841_create_boards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_072841_create_boards_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/boards/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/boards/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_24_072548_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_24_072548_create_comments_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/boards/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/boards/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +184,7 @@
       <workItem from="1595231232784" duration="25018000" />
       <workItem from="1595403622919" duration="592000" />
       <workItem from="1595576344846" duration="14912000" />
-      <workItem from="1595746059413" duration="4039000" />
+      <workItem from="1595746059413" duration="6322000" />
     </task>
     <servers />
   </component>

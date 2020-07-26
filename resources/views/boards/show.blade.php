@@ -33,15 +33,19 @@
     @endif
 
     {{--  목록 버튼  --}}
-    <div class="inline-block mt-8 w-full text-left ml-6">
+    <div class="inline-block mt-8 w-full ml-4 text-left">
         <a href="{{url('./boards')}}"><button class="py-1 px-4 bg-blue-500 hover:bg-blue-700 text-gray-200 mr-4">목록</button></a>
     </div>
 
     {{--  댓글 목록  --}}
-    <div>
+    <div class="w-5/6 mx-auto mt-8 border-t border-gray-500">
         @foreach($comment as $item)
-            {{$item->userName}}
-            {{$item->commentStory}}
+            <div class="mt-4 w-full border-b border-gray-500">
+                <p class="font-bold mb-2 ml-2">{{$item->userName}}</p>
+                <div class="mb-2">
+                    {{$item->commentStory}}
+                </div>
+            </div>
         @endforeach
     </div>
     {{--  댓글작성   --}}
