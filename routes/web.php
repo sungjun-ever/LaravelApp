@@ -37,6 +37,8 @@ Route::prefix('auth')->group(function (){
 
 Route::resource('boards', 'BoardController');
 
+Route::post('/comments/store', 'CommentController@store')->name('comment.add');
+
 
 Auth::routes();
 

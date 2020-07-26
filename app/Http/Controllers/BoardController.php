@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -63,7 +64,9 @@ class BoardController extends Controller
 
     public function show(Board $board){
         $boards = Board::all()->sortByDesc('id')->take(10);
-        return view('boards.show', compact(['board', 'boards']));
+        $parentID = $board -> id;
+        $comment = DB::table('comments')->where('parent_id', '=', $parentID)->get();
+        return view('boards.show', compact(['board', 'boards', 'comment']));
     }
 
     public function edit(Board $board){
@@ -71,20 +74,25 @@ class BoardController extends Controller
     }
 
     public function update(Board $board){
-        $validator = Validator::make(request(['title', 'story']),[
-            'title' => 'required|max:255',
-            'story' => 'required',
-        ]);
-        if ($validator->fails()){
-            return redirect('boards/'.$board->id.'/edit')->withErrors($validator)->withInput();
-        }
-        else{
-            $board->update(request(['title', 'story']));
-            return redirect('/boards/'.$board->id);
+        if ($board->userID != auth()->id()){
+            return redirect()->back();
+        } else{
+            $validator = Validator::make(request(['title', 'story']),[
+                'title' => 'required|max:255',
+                'story' => 'required',
+            ]);
+            if ($validator->fails()){
+                return redirect('boards/'.$board->id.'/edit')->withErrors($validator)->withInput();
+            }
+            else{
+                $board->update(request(['title', 'story']));
+                return redirect('/boards/'.$board->id);
+            }
         }
     }
 
     public function destroy(Board $board){
+        Storage::delete('public/images/'.$board->imageName);
         $board -> delete();
         return redirect('/boards');
         }
