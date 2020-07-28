@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="{{mix('css/tailwind.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <title>@yield('title')</title>
 </head>
 <body class="bg-gray-300 h-screen">
@@ -31,7 +32,14 @@
 
         <div class="flex-auto text-center px-2 py-3">
             @auth
-                <a class="px-2 text-gray-400 hover:text-white" href="#">{{Auth::user()->name}}</a>
+                <div class="dropdown">
+                    <a class="px-2 text-gray-400 hover:text-white dropbtn" href="#">{{Auth::user()->name}}</a>
+                    <div class="dropdown-content">
+                        <a href="{{url('./auth/edituser')}}">정보 수정</a>
+                        <a href="{{url('./mywork/mycreate')}}">내 게시물 보기</a>
+                        <a href="{{url('./mywork/mycomment')}}">내 댓글 보기</a>
+                    </div>
+                </div>
                 <a class="px-2 text-gray-400 hover:text-white" href="{{url('./auth/logout')}}">로그아웃</a>
             @endauth
             @guest
@@ -60,5 +68,6 @@
             location.href = './auth/login';
         }
     </script>
+
 </body>
 </html>

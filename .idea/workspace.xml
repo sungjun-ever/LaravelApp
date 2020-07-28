@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="857ecfc1-5d4c-4985-ae40-6c7e2389136b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/edituser.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mywork/mycomment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mywork/mycreate.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_24_072548_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_24_072548_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/boards/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/boards/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +188,8 @@
       <workItem from="1595231232784" duration="25018000" />
       <workItem from="1595403622919" duration="592000" />
       <workItem from="1595576344846" duration="14912000" />
-      <workItem from="1595746059413" duration="6322000" />
+      <workItem from="1595746059413" duration="6710000" />
+      <workItem from="1595923666298" duration="5398000" />
     </task>
     <servers />
   </component>
@@ -204,10 +209,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="741" y="145" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594534696173" />
-    <state x="904" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595746232589">
+    <state x="904" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595923839084">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="904" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595746232589" />
+    <state x="904" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595923839084" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1595134707883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

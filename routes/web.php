@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use App\Board;
 
 
@@ -41,5 +43,37 @@ Route::post('/comments/store', 'CommentController@store')->name('comment.add');
 
 
 Auth::routes();
+
+Route::get('/auth/edituser', function (){
+    $userID = auth()->id();
+    $user = DB::table('users') -> where('id', '=', $userID) -> get();
+   return view('/auth/edituser', compact('user'));
+});
+
+//Route::post('/auth/edituser', function (){
+//    $userID = auth()->id();
+//    $user = DB::table('users') -> where('id', '=', $userID) -> get();
+//    $validation = validator::make(request()->all(),[
+//        'password' => 'required|string|min:8|confirmed'
+//    ]);
+//    if($validation -> fails()){
+//        return redirect()->back();
+//    } else{
+//        $user
+//        return redirect('/');
+//    }
+//});
+
+Route::get('/mywork/mycreate', function (){
+    $userID = auth()->id();
+    $board = DB::table('boards') -> where('userID', '=', $userID)->orderByDesc('id')->paginate(10);
+    return view('/mywork/mycreate', compact('board'));
+});
+
+Route::get('/mywork/mycomment', function (){
+    $userID = auth()->id();
+    $comments = DB::table('comments') -> where('userID', '=', $userID)->orderByDesc('created_at')->paginate(2);
+    return view('/mywork/mycomment', compact('comments'));
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
